@@ -76,3 +76,39 @@ Pseudo-class merupakan sebuah class “semu” yang sebenarnya ada pada tiap ele
 
 - Pseudo-elemen Selector
 Sama seperti pseudo-class, pseudo-elemen merupakan sebuah elemen “semu” yang sebenarnya ada tetapi tidak tampak secara tertulis pada berkas HTML. Selector ini biasa digunakan ketika kita ingin menambahkan sebuah konten tepat sebelum dan setelah sebuah elemen paragraf. Alhasil kita tidak perlu menuliskan struktur elemen tersebut pada berkas HTML. Cukup manfaatkan pseudo-elemen ::before dan ::after kemudian tuliskan konten tersebut cukup pada CSS. Contohnya kita ingin menambahkan tanda kutip sebelum dan sesudah elemen blockquote.
+
+# Formatting Text (Font & Text)
+font-family : Menetapkan jenis font yang akan diterapkan pada target.
+font-size : Menentukan ukuran pada teks.
+font-weight : Menentukan ketebalan pada teks. 
+font-style : Menetapkan styling yang diterapkan pada teks.
+font-variant : Menentukan teks untuk menggunakan gaya small caps (huruf kapital kecil).
+font : Shorthand dari properti font yang ada.
+
+Pada rule tersebut kita mengubah standar font yang digunakan browser dengan font ‘sans-serif’. Sebenarnya untuk nilai dari properti ini dapat lebih dari satu (dikenal sebagai font stack). Tujuannya adalah sebagai fallback jika terjadi kegagalan dalam menggunakan font yang kita gunakan. 
+p {font-family: sans-serif / "Open Sans" (memiliki spasi pakai tanda kutip ""), Arial, Verdana; }
+
+- generic font families
+serif : jenis font yang memiliki runcing pada garis akhir karakternya. Times New Roman merupakan salah satu jenis serif font.
+sans-serif : jenis font yang tidak meruncing pada garis akhir karakternya. Contohnya “Open Sans”, “Fira Sans” dan lainnya.
+monospace : jenis font yang memiliki nilai lebar tiap karakternya sama. Consolas merupakan salah satu jenisnya.
+cursive: jenis font yang tampak seperti handwriting atau hasil tulisan tangan.
+fantasy : jenis font yang merepresentasikan karakteristik yang menyenangkan.
+system-ui : jika menerapkan nilai ini maka font yang diterapkan akan sama seperti font yang digunakan pada sistem operasi kita.
+math : jenis font yang digunakan untuk penulisan rumus-rumus matematika.
+emoji : jenis font yang digunakan untuk menampilkan emoji.
+fangsong : jenis font yang menampilkan gaya penulisan Chinese.
+
+- Satuan dalam menetapkan ukuran font terdapat dua jenis. Yang pertama relative, yakni satuan yang nilainya 
+tergantung pada sesuatu hal, contohnya ukuran dari viewport, induk elemen ataupun ukuran teks standar. 
+Dan yang kedua adalah absolute, yakni satuan yang nilainya telah ditentukan atau digunakan dalam dunia nyata.
+
+contoh:
+body {
+  font-size: 16px;
+}
+h1 {
+  font-size: 150%; /* 150% dari 16 = 24px */
+}
+
+
