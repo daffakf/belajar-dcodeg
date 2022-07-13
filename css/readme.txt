@@ -111,4 +111,35 @@ h1 {
   font-size: 150%; /* 150% dari 16 = 24px */
 }
 
+- text-shadow
+Nilai dari properti ini cukup rumit karena membutuhkan tiga buah nilai dan satu buah nilai warna sehingga membutuhkan empat nilai dalam satu properti untuk menentukan bayangannya.
 
+Nilai pertama : menunjukkan seberapa jauh ke kiri atau kanan (horizontal) bayangan harus ditampakkan.
+Nilai kedua : menunjukkan jarak ke atas atau ke bawah (vertical) bayangan harus ditampakkan. 
+Nilai Ketiga (opsional) : menentukan tingkat keburaman yang harus diterapkan pada bayangan.
+Nilai Keempat :  menentukan warna yang digunakan pada bayangan.
+
+Contoh: text-shadow: 1px 1px 0px #000000;
+
+# inline element:
+
+- Elemen HTML yang secara default tidak menambahkan baris baru ketika dibuat.
+- Nilai lebar dan tinggi elemen inline sebesar konten di dalamnya, dan tidak dapat diubah.
+- Margin dan padding hanya mempengaruhi elemen secara horizontal, tidak vertikal.
+
+# block element:
+
+- Elemen HTML secara default menambahkan baris baru ketika dibuat.
+- Jika tidak diatur lebarnya, lebar dari elemen block akan memenuhi lebar dari browser atau elemen yang menaunginya.
+- Kita dapat mengatur dimensi dari elemen block.
+- Di dalam elemen block, kita dapat menyimpan tag elemen HTML lainnya.
+
+# box shadow:
+
+box-shadow: 6px 6px 5px 10px #666666;
+
+- Nilai pertama : menunjukkan seberapa jauh ke kiri atau kanan (horizontal) bayangan harus ditampakkan.
+- Nilai kedua : menunjukkan jarak ke atas atau ke bawah (vertical) bayangan harus ditampakkan. 
+- Nilai Ketiga (opsional) : menentukan tingkat keburaman yang harus diterapkan pada bayangan.
+- Nilai Keempat (opsional) : menentukan tingkat sebaran (spread) bayangan. Semakin besar nilai yang ditentukan, bayangan yang nampak pun semakin luas.
+- Nilai Kelima : menentukan warna yang digunakan pada bayangan.
