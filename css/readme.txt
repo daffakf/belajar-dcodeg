@@ -143,3 +143,30 @@ box-shadow: 6px 6px 5px 10px #666666;
 - Nilai Ketiga (opsional) : menentukan tingkat keburaman yang harus diterapkan pada bayangan.
 - Nilai Keempat (opsional) : menentukan tingkat sebaran (spread) bayangan. Semakin besar nilai yang ditentukan, bayangan yang nampak pun semakin luas.
 - Nilai Kelima : menentukan warna yang digunakan pada bayangan.
+
+# Positioning
+
+- Normal Flow / Static Flow : Merupakan default behaviour yang dimiliki elemen, di mana setiap elemen block akan ditampilkan dalam baris baru ketika dibuat. Sehingga setiap elemen block selalu muncul di bawah dari elemen block sebelumnya. Bahkan jika masih terdapat ruang kosong pada samping elemennya, mereka tidak akan nampak bersebelahan. 
+- Relative Positioning : Membuat elemen bisa berpindah posisi ke atas, kanan, bawah, maupun kiri dari posisi semula atau posisi seharusnya elemen tersebut berada. Perpindahan posisi ini tidak akan berpengaruh terhadap posisi elemen di sekitarnya karena ketika menggunakan relative positioning, elemen tersebut akan dipindahkan dari normal flow.
+- Absolute Positioning : Sama seperti relative, elemen akan dipindahkan keluar dari normal flow sehingga kita dapat memindahkan posisi elemen ke atas, kanan, bawah, maupun kiri secara leluasa tanpa mengganggu elemen di sekitarnya. Namun posisinya relatif pada jendela browser dan induk elemen selama induk elemen juga berada di luar dari normal flow.
+- Fixed Positioning : Merupakan absolute position namun posisinya selalu relatif pada jendela browser. Bahkan ketika pengguna scrolling pun, posisinya di layar akan tetap tak berubah. 
+
+Untuk mengubah posisi elemen yang berada di non-static flow, kita dapat menggunakan properti top, right, bottom, maupun left.
+Perlu kita ingat ya, bahwa properti top, left, right, dan bottom pada CSS hanya akan berpengaruh pada elemen yang menerapkan non-static flow (elemen yang menerapkan nilai relative, absolute, dan fixed pada properti position).
+
+- Fixed positioning merupakan absolute position namun posisinya selalu relatif pada jendela browser (meskipun diletakan di dalam induk elemen diluar dari flow normal). Bahkan ketika pengguna melakukan scrolling posisinya akan tetap nampak pada posisinya di layar.
+
+- Floating
+Sederhananya properti float dapat membuat elemen berada pada sebelah kanan atau kiri. Saat diterapkan pada elemen inline, properti float juga memungkinkan elemen di sekitarnya mengelilingi elemen tersebut (wrap).
+
+- Permasalahan penerapan float
+Properti float terlihat sangat mudah untuk digunakan, baik dalam text wrapping maupun dalam penyusunan layout. Tetapi bukan berarti ketika menggunakan properti ini, tiada efek samping atau masalah yang ditimbulkan. Apa itu?
+
+- Clear Property
+Jika sebuah elemen induk hanya memiliki satu elemen dengan menerapkan properti float, ia akan memiliki nilai tinggi 0px.
+Cara yang pertama adalah dengan menggunakan properti clear. Properti clear memang dibuat untuk menghilangkan sifat float, dengan demikian elemen yang menerapkan properti float akan kembali “dianggap ada”. Namun untuk menerapkan properti ini kita perlu membuat sebuah elemen kosong (biasanya menggunakan div tanpa konten) yang menerapkan properti clear.
+Nilai dari properti clear merupakan nilai yang digunakan pada properti float karena properti clear akan menghapus sifat float sesuai dengan nilai yang ditetapkan.
+
+- overflow: auto;
+Cara yang kedua adalah dengan menetapkan properti overflow: auto; pada elemen yang menampung elemen float. Sebagian developer lebih memilih menggunakan cara ini karena lebih praktis dan tidak perlu membuat elemen baru ketika menggunakannya.
+Untuk menerapkannya sangatlah simpel. Cukup tambahkan properti overflow dengan nilai auto pada container.

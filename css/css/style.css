@@ -2,6 +2,9 @@
 
 body {
     font-family: 'Quicksand', sans-serif;
+    /* menghilangkan nilai margin dan padding standar browser, sehingga layout akan memenuhi seluruh lebar dan tinggi */
+    margin: 0;
+    padding: 0;
 }
 
 h2,
@@ -30,4 +33,57 @@ nav a:hover {
 
 .profile header {
     text-align: center;
+}
+
+.featured-image {
+    width: 100%;
+    max-height: 300px;
+    /* property untuk membuat gambar yang ditampilkan dapat menyesuaikan panjang dan lebar dengan mempertahankan kualitas rasio aslinya. */
+    object-fit: cover;
+    object-position: center;
+}
+
+.profile img {
+    width: 200px;
+}
+
+/* menerapkan card */
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+/* menerapkan jumbotron */
+.jumbotron {
+    padding: 60px;
+    background-color: #00c8eb;
+    text-align: center;
+    font-size: 20px;
+    color: white;
+}
+
+nav {
+    background-color: #00a2c6;
+    padding: 5px;
+}
+
+nav li {
+    display: inline;
+    /* menghilangkan bullet */
+    list-style-type: none;
+    margin-right: 20px;
+}
+
+nav a {
+    font-size: 18px;
+    font-weight: 400;
+    text-decoration: none;
+    color: white;
+}
+
+/* menambahkan rule baru dengan selector main */
+main {
+    padding: 20px;
 }
