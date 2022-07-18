@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Quicksand:400,700&display=swap');
 
+* {
+    box-sizing: border-box;
+}
+
 body {
     font-family: 'Quicksand', sans-serif;
     /* menghilangkan nilai margin dan padding standar browser, sehingga layout akan memenuhi seluruh lebar dan tinggi */
@@ -67,6 +71,9 @@ nav a:hover {
 nav {
     background-color: #00a2c6;
     padding: 5px;
+    position: sticky;
+    /* Nilai top diperlukan agar ketika pengguna melakukan scrolling, elemen navigasi tetap berada atau menyangkut di atas jendela browser. */
+    top: 0;
 }
 
 nav li {
@@ -86,4 +93,62 @@ nav a {
 /* menambahkan rule baru dengan selector main */
 main {
     padding: 20px;
+    /* 4 menambahkan properti overflow */
+    overflow: auto;
+}
+
+/* elemen main */
+#content {
+    float: left;
+    /* jangan lupa menetapkan lebar */
+    /* 1. (lebar parent) */
+    width: 75%;
+}
+
+/* elemen aside */
+aside {
+    float: right;
+    /* 2. karena 75% sudah ditempati */
+    width: 25%;
+    /* 3. setelah 25% ditempati oleh aside 
+    Agar #content dan elemen <aside> dianggap ada oleh <main> 
+    (sebagai induk elemennya) kita perlu tetapkan nilai overflow: auto; pada main*/
+    /* 5. memberikan jarak antara #content dan aside */
+    padding-left: 20px;
+    /* 6. menerapkan nilai border-box pada seluruh elemen atau ( *{} ) */
+}
+
+/* CSS Media Queries */
+/* CSS properti ini akan diterapkan jika ukuran lebar viewport kurang dari 1000px (maksimal 999px). */
+@media screen and (max-width: 1000px) {
+
+    #content,
+    aside {
+        /* konten memenuhi layar */
+        width: 100%;
+        /* merapihkan konten aside */
+        padding: 0;
+    }
+}
+
+/* Sticky Navigation */
+/* Dengan menggunakan nilai sticky pada properti position, membuat navigasi dapat 
+melekat pada jendela browser (layaknya fixed position) tetapi posisi awalnya tetap menempati 
+posisi di mana ia seharusnya berada (layaknya relative position).  */
+
+/*  menambahkan property position dan top
+nav {
+    position: sticky;
+
+    Nilai top diperlukan agar ketika pengguna melakukan scrolling, elemen navigasi tetap berada atau menyangkut di atas jendela browser.
+    top: 0;
+} */
+
+/*  Bagaimana agar navigasi dapat menempel pada seluruh halaman? Pada latihan sebelumnya, 
+kita telah membuat elemen <header> sebagai induk dari elemen <nav> dan elemen <div> yang 
+memiliki atribut class dengan nilai jumbotron. Elemen <header> tersebut perlu diterapkan 
+properti display dengan nilai inline. */
+
+header {
+    display: inline;
 }

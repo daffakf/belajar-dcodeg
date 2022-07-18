@@ -170,3 +170,57 @@ Nilai dari properti clear merupakan nilai yang digunakan pada properti float kar
 - overflow: auto;
 Cara yang kedua adalah dengan menetapkan properti overflow: auto; pada elemen yang menampung elemen float. Sebagian developer lebih memilih menggunakan cara ini karena lebih praktis dan tidak perlu membuat elemen baru ketika menggunakannya.
 Untuk menerapkannya sangatlah simpel. Cukup tambahkan properti overflow dengan nilai auto pada container.
+
+- Properti float berfungsi untuk memindahkan suatu elemen untuk berada sebelah di kiri atau di sebelah kanan, dengan menggunakan nilai right atau left. Ketika menggunakan properti tersebut kita perlu menetapkan lebar pada elemen yang akan diterapkan properti float sehingga kita tahu berapa banyak cakupan lebar yang disediakan untuk elemen tersebut.
+
+- Pada browser Google Chrome dan Mozilla Firefox terdapat fitur inspection. Fitur ini sangat bermanfaat bagi developer web dalam membantu pengembangan website.
+Yang jelas pada inspector tersebut terdapat fitur di mana kita dapat mensimulasikan halaman website dalam tampilan mobile device atau tablet. Untuk membuka fitur inspector kita bisa gunakan shortcut ctrl + shift + i pada browser, atau dengan melakukan klik kanan -> inspect / inspect page.
+
+
+- CSS Media Queries
+CSS menyediakan sebuah fitur yang dapat kita gunakan untuk menentukan rule hanya pada ukuran viewport tertentu. Fitur tersebut dinamakan CSS Media Queries.
+
+Contoh:
+/* Rule yang dituliskan dalam block @media di bawah akan diterapkan pada device yang memiliki ukuran viewport di bawah 992px */
+@media screen and (max-width: 992px) {
+  /* ..... */
+}
+ 
+/* Rule yang dituliskan dalam block @media di bawah akan diterapkan pada device yang memiliki ukuran viewport di bawah 600px */
+@media screen and (max-width: 600px) {
+  /* ..... */
+}
+
+- Materi Responsive Layout
+https://www.dicoding.com/blog/dasar-tampilan-responsif-pada-website/
+https://web.dev/responsive-web-design-basics/
+
+- Sticky Positioning (kombinasi relative dan fixed)
+Dengan menggunakan nilai sticky pada properti position, membuat navigasi dapat melekat 
+pada jendela browser (layaknya fixed position) tetapi posisi awalnya tetap menempati posisi di mana ia seharusnya berada (layaknya relative position).
+
+# Memperbaiki CSS
+Terdapat banyak cara dan best practice dalam memperbaiki CSS yang telah Anda tulis. Salah satu cara yang mudah dan cepat dilakukan adalah dengan menggunakan tools untuk otomatis mencari kesalahan pada penulisan.
+
+# Mencari Kesalahan CSS
+Salah satu cara yang paling cepat untuk memastikan bahwa CSS yang telah Anda tulis itu valid dan dapat berjalan adalah menggunakan berbagai tools online yang tersedia secara gratis. Pengecekan cukup dengan cara copy-paste kode CSS, upload berkas CSS, atau menulis alamat situs yang ingin diperiksa.
+
+Berikut beberapa opsi gratis yang tersedia.
+
+- https://jigsaw.w3.org/css-validator/
+- https://codebeautify.org/cssvalidate
+- http://csslint.net/
+
+# Kecilkan Ukuran CSS
+Ukuran CSS sangat penting untuk dapat dihemat karena akan mempengaruhi seberapa cepat situs Anda dapat dimuat pada browser. Cara untuk menghemat ukuran berkas CSS adalah dengan menghapus spasi atau karakter yang tidak diperlukan dari kode. Berikut contoh spasi atau karakter yang dapat dihapus:
+
+- New line characters (Baris baru)
+- Whitespace characters (Spasi)
+- Block delimiters (Pembatas block)
+- CSS comments (Komentar CSS)
+
+Perbaikan di atas dapat dilakukan secara manual namun Anda juga dapat menggunakan tools online yang dapat memperbaiki secara otomatis. Berikut beberapa opsi yang tersedia.
+
+- https://cssnano.co/playground/
+- https://cssminifier.com/
+- https://www.minifier.org/
