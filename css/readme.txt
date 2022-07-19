@@ -224,3 +224,40 @@ Perbaikan di atas dapat dilakukan secara manual namun Anda juga dapat menggunaka
 - https://cssnano.co/playground/
 - https://cssminifier.com/
 - https://www.minifier.org/
+
+# Flexible Box Model
+Jadi apa sebenarnya itu flexbox atau flexible box model? Pada dasarnya flexbox merupakan mode layout yang mudah dan praktis untuk mengatur elemen dengan menggunakan sebuah container.
+
+Sebelumnya kita sudah menggunakan teknik float dalam penyusunan layout. Float memang cukup mudah dipahami tetapi tak cukup praktis untuk digunakan. Pasalnya, kita memerlukan pengukuran dimensi yang tepat agar elemen berada di posisi yang diinginkan.
+
+Dengan Flexbox kita dapat mengatur ukuran secara otomatis dan mampu beradaptasi dengan ukuran container-nya. Dengan kemampuan flexibelnya, tampilan layout yang disusun menggunakan flexbox menjadi mobile-friendly. Selain itu, flexbox dapat dikombinasikan dengan media query, sehingga ia dapat lebih optimal lagi digunakan pada peranti mobile.
+
+Berikut beberapa konsep dari flexbox yang perlu kita ketahui:
+
+- Dapat mengubah ukuran dimensi elemen dengan menyesuaikan ukuran yang cocok bagi ruang kosong yang ada pada container-nya.
+- Flexbox is directional agnostic. ini berbeda dengan konsep block model di mana elemen selalu ditampilkan secara vertikal dengan membuat baris baru. Ini berbeda pula dengan konsep inline model di mana elemen selalu ditampilkan secara horizontal. Dengan flexbox kita dapat melakukan kedua hal tersebut dengan mudah.
+- Dibuat untuk menyusun layout yang mobile friendly.
+
+# Flex Container
+Flex container merupakan sebuah elemen yang menampung beberapa flex item. Karena Parent-child merupakan relasi yang wajib ada dalam penerapan flexbox, maka setiap flex item harus merupakan anak / child dari flex container.
+
+Materi Flexbox: https://medium.com/@elelvyra/learn-css-display-property-flexbox-2-2c78f559889f
+
+ Pada box, kita tidak menetapkan nilai dimensi seperti width dan height. Kita cukup menggunakan satu properti yakni flex-grow: 1;.
+
+# Property flex-grow
+Properti flex-grow ini digunakan untuk memberitahu berapa banyak ukuran yang harus ditetapkan oleh flex-item. Nilai dari properti ini bukan nilai dari dimensi asli pada flex item, melainkan nilai yang relatif terhadap ruang kosong pada flex container.
+
+Jika kita menetapkan nilai flex-grow yang sama pada seluruh flex item, maka dimensi dari tiap flex item akan sama rata dan memenuhi ruang kosong yang ada pada container. Namun jika kita memberikan nilai yang berbeda dari salah satu item-nya, contohnya nilai yang lebih besar, maka flex item tersebut akan mencakup ukuran yang lebih besar. Flex item yang lain akan menyusut menyesuaikan agar tetap masuk pada ruang flex container. 
+
+# Flex Direction
+Seperti yang sudah kita ketahui sebelumnya, flexbox merupakan directional agnostic, di mana kita dapat mengubah arah munculnya flex-item yang berada di flex container. Secara default deretan flex-item ditampilkan secara horizontal, namun kita dapat mengubahnya dengan menetapkan properti flex-direction pada flex container-nya.
+
+Ada empat nilai yang bisa digunakan untuk properti flex-direction, antara lain:
+
+- row : merupakan nilai default, di mana deretan flex-item pada container ditampilkan secara horizontal.
+- row-reverse : memiliki sifat yang sama seperti row, namun urutan flex item-nya ditukar.
+- column : Deretan flex-item pada container ditampilkan secara vertikal.
+- column-reverse : memiliki sifat yang sama seperti column, namun urutan flex item-nya ditukar.
+
+Dengan menggunakan properti ini, kita dapat membuat dua dimensional layout dengan menempatkan flex container di dalam flex container, dalam arti lain sebuah flex container dapat memiliki child berupa flex container lain.
