@@ -1,0 +1,79 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+}
+
+.flex-container-column {
+    display: flex;
+    /* flex-direction nilai default-nya row */
+    flex-direction: column;
+
+    /* properti pendukung */
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: right;
+}
+
+.flex-container-row {
+    /* tidak perlu properti flex-direction (karena row nilai default-nya */
+    display: flex;
+}
+
+.button {
+    /* membagi empat */
+    flex-basis: 25%;
+
+    /* properti pendukung */
+    font-size: 1.5em;
+    text-align: center;
+    padding: 40px;
+    border: 1px solid black;
+    background: -webkit-linear-gradient(top, #d2d2d2, #ddd);
+    cursor: pointer;
+}
+
+/* agar tombol equals 2 kali lebih besar dibandingkan dengan tombol yang lain */
+.double {
+    flex-basis: 50%;
+}
+
+.display {
+    color: white;
+    width: 100%;
+    padding: 10px 20px;
+    background-color: #333;
+    border: 1px solid black;
+    font-size: 2em;
+}
+
+/* membuat warna background class .operator, .negative, dan .equals berwarna ... */
+.operator,
+.negative,
+.equals {
+    background: lightblue;
+}
+
+/* membuat efek card pada calculator */
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    padding: 30px;
+    margin-top: 20px;
+}
+
+/* membuat efek lain pada tombol memanfaatkan pseudo-class:hover */
+.button:hover {
+    font-weight: bold;
+}
+
+/* Pada device mobile tampilan kalkulator sudah responsif namun, teks tombol masih terlalu kecil tampilannya. Aspek aksesibilitas penggunanya, kurang. */
+/* tambahkan meta tag viewport pada file html dan gunakan @media query */
+/* media query untuk menetapkan nilai padding yang pas ketika di akses pada mobile device */
+@media screen and (max-width: 513px) {
+    .button {
+        padding: 10px;
+    }
+}
