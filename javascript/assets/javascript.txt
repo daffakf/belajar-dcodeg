@@ -1,0 +1,120 @@
+console.log("Selamat Anda berhasil menggunakan JavaScript pada Website");
+
+/* # Undifined
+Tipe data ini terbentuk ketika sebuah variabel tidak memiliki nilai, dalam arti lain ketika kita mendeklarasikan variabel tanpa menginisialisasikan nilainya, maka variabel tersebut menjadi undefined.
+*/
+let x;
+console.log(typeof (x));
+
+/* output: undefined */
+
+
+
+/* # Numbers
+Nilai dari tipe data number adalah angka. */
+
+let x = 10;
+console.log(typeof (x))
+
+// output: number 
+
+let y = 17.25;
+console.log(typeof (y))
+
+//  output: number
+
+// ## Penjumlahan
+let a = 12;
+let b = 9;
+
+console.log(a + b)
+console.log(a - b)
+console.log(a * b)
+console.log(a / b)
+console.log(a % b)
+
+/* output:
+21
+3
+108
+1.3333333333333333
+3
+*/
+
+/* ## Increment dan Decrement */
+
+let postfix = 5;
+console.log(postfix++);
+/* output: 5 */
+
+let prefix = 5;
+console.log(++prefix);
+/* output: 6 */
+
+
+
+/* # Strings
+Tipe data selanjutnya adalah strings, String ini dasarnya adalah sebuah teks. Pada JavaScript untuk menetapkan nilai string pada variabel, gunakan tanda single (‘) atau double quote (“) di antara teksnya. */
+
+let greet = "Hello";
+console.log(typeof (greet))
+
+/* output: string */
+
+// ## Operator plus (+)
+let greet = "Hello";
+let moreGreet = greet + greet;
+console.log(moreGreet);
+
+/* output: HelloHello */
+
+
+
+/* # Boolean
+Boolean hanya dapat memiliki dua nilai, yakni true atau false. Tipe data ini menjadi kunci utama dalam penentuan logika, kita akan memahaminya nanti ketika pembahasan if/else statement. Untuk menetapkan nilai boolean pada variabel kita bisa menggunakan keyword true atau false. */
+
+let x = true;
+let y = false;
+
+console.log(typeof (x))
+console.log(typeof (y))
+
+/* output: 
+boolean
+boolean
+*/
+
+// ## Operator komparasi (>) atau (<)
+const a = 10;
+const b = 12;
+
+let isGreater = a > b;
+let isLess = a < b;
+
+console.log(isGreater);
+console.log(isLess);
+
+/* output:
+false
+true
+*/
+
+/* # Null
+Yang terakhir adalah null. Serupa dengan undefined, namun null perlu diinisialisasikan pada variabel. null biasa digunakan sebagai nilai sementara pada variabel, tapi sebenarnya nilai tersebut “tidak ada”.
+Terkadang kita perlu membuat sebuah variabel, namun kita belum memerlukan nilai apa apa dan tidak ingin terikat oleh tipe data apapun. Nah, daripada kita tidak menetapkan nilai apapun (variabel akan undefined) sebaiknya kita beri nilai null pada variabel tersebut, dan ubah nanti ketika kita membutuhkannya.
+Untuk menetapkan null pada variabel, kita dapat gunakan keyword null ketika variabel tersebut diinisialisasikan. */
+
+let someLaterData = null;
+console.log(someLaterData);
+
+/* output:
+null
+*/
+
+/* # Catatan
+Meskipun terdapat beberapa tipe data dalam JavaScript, tetapi variabel pada JavaScript memiliki sifat tipe data yang dinamis. Artinya, kita dapat memberikan tipe data yang berubah-ubah pada satu variabel yang sama. Contohnya: */
+
+let x; // x merupakan undefined
+x = 1 // sekarang x merupakan number
+x = true // sekarang x merupakan boolean
+x = "Harry" // sekarang x merupakan string
