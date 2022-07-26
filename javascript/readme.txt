@@ -459,3 +459,432 @@ function parent() {
 Mungkin kita berharap nilai total akan tetap 9. Mengingat variabel total pada fungsi multiply, seharusnya tidak akan berpengaruh untuk kode di luar dari fungsi tersebut. Hal ini bisa terjadi karena pada fungsi multiply() kita tidak menetapkan variabel total sebagai cakupan lokal, kita tidak menggunakan keyword const, let, atau var ketika mendeklarasikan variabel total pada fungsi multiply() sehingga variabel total menjadi global.
 Perlu kita perhatikan bahwa, ketika kita lupa menuliskan keyword let, const atau var pada script ketika membuat sebuah variabel, maka variabel tersebut akan menjadi global.
 Sebisa mungkin kita harus menghindari pembuatan variabel global, karena variabel global dapat diakses pada seluruh script yang kita tuliskan. Semakin banyak variabel global yang kita tuliskan, semakin tinggi kemungkinan variabel tabrakan (collision) terjadi.
+
+# Mode Strict
+Mode Strict adalah mode yang memaksakan penulisan program JavaScript yang baik dan aman. Hal ini memastikan tidak terjadinya kegagalan dalam menjalankan kode akibat penulisan script yang buruk, dan juga mencegah timbulnya bug. 
+
+Berikut beberapa hal yang tidak dapat dilakukan jika menggunakan mode Strict:
+
+Menggunakan variabel sebelum mendeklarasikannya. 
+Menghapus variabel, function dan argumen.
+Menggunakan definisi object property yang berulang.
+Menggunakan definisi parameter pada function yang berulang.
+Menulis pada property jenis readonly.
+Menggunakan angka dengan penulisan oktal.
+Menulis pada property jenis get.
+Menghapus undelete property seperti pada property jenis prototype.
+Menggunakan string “eval” dan “argument” sebagai variabel.
+Menggunakan statement jenis with.
+Menggunakan future keyword reserve seperti implements, interface, package, private, protected, public, static, yield.
+
+# Cara aktivasi mode Strict
+Jalankan mode Strict dengan cara menuliskan perintah “use strict” pada awal sebuah script atau function. Perintah ditulis dalam bentuk tulisan biasa dan bukan merupakan statemen. Jika perintah ditulis di awal sebuah script maka akan berlaku untuk secara global. Jika ditulis di dalam function maka tidak akan berlaku secara global.
+Syntax:
+"use strict";
+x = 9;       // ini akan dianggap error karena variabel belum dideklarasikan
+showAngka();   // ini akan dianggap error karena function belum dideklarasikan
+ 
+function showAngka() {
+  var x = 9;
+  alert(x);
+}
+
+# Browser Object
+Seperti yang kita tahu, dengan menggunakan JavaScript, website kita dapat lebih fungsional dan interaktif. Untuk membuat website menjadi interaktif, tentu JavaScript harus dapat mengontrol elemen yang ada pada website. Dalam mengontrol browser, JavaScript menggunakan object yang sudah tersedia dalam browser yakni window. 
+Pada JavaScript, browser dikenal sebagai window object. Di dalam objek window itu sendiri terdapat banyak properties dan method yang bisa digunakan, salah satu yang sudah kita ketahui adalah alert().
+Kita bisa melihat secara lengkap apa saja properti, method serta event yang ada pada objek window melalui console browser dengan mengetikkan window pada console.
+
+- Dengan properti dan method tersebut, JavaScript mampu mengontrol browser melalui syntax. Kita tidak perlu mengetahui seluruh properti dan method. Berikut beberapa properti dan method yang sering digunakan seperti:
+
+history - Sebagai navigasi (go back atau go forward) histori URL browser.
+location -Mendapatkan URL yang terdapat pada address bar browser.
+alert() - Menampilkan dialog alert dengan pesan dan tombol “ok”.
+close() - Menutup tab yang aktif.
+confirm() - Menampilkan dialog dengan pesan dan tombol “ok” dan “cancel”. Method ini akan mengembalikan nilai boolean sesuai response dari pengguna.
+prompt() - Menampilkan dialog dengan pesan dan teks input. Method ini akan mengembalikan nilai string sesuai response dari pengguna.
+
+Dalam mengakses properti dan method pada objek window, kita bisa menuliskannya secara langsung tanpa harus memanggil objek window-nya terlebih dahulu. Karena properti dan method pada window bersifat global.
+Syntax:
+// mengakses method alert() pada window
+window.alert("Hello Browser!")
+ 
+// Kita juga bisa mengaksesnya seperti ini
+alert("Hello Browser!")
+
+Setelah mengetahui cara penggunaan browser object dan dasar-dasar JavaScript, dengan menggabungkan pengetahuan keduanya, kita bisa membuat program sederhana. Contohnya kita bisa membuat program yang interaktif dengan menggunakan prompt() untuk mendapatkan nilai input dari pengguna dan alert() untuk menampilkan pesan.
+Syntax:
+const firstName = prompt("Siapa nama depanmu?");
+const lastName = prompt("Siapa nama belakangmu?");
+const language = prompt("Bisa berbahasa apa?");
+ 
+const user = {
+   name: {
+       first: firstName,
+       last: lastName,
+   },
+   language: language
+};
+ 
+if (user.language === "English") {
+   alert("Nice to meet you " + user.name.first + " " + user.name.last + "!");
+} else if (user.language === "French") {
+   alert("Ravi de vous rencontrer " + user.name.first + " " + user.name.last + "!");
+} else if (user.language === "Japanese") {
+   alert("Hajimemashite, " + user.name.first + " " + user.name.last + "!");
+} else {
+   alert("Senang bertemu dengan Anda " + user.name.first + " " + user.name.last + "!");
+}
+
+# DOM
+Document Object Model (DOM) memberikan kita jalan untuk mengakses dan memanipulasi konten pada dokumen. DOM merupakan application programming interface (API) untuk HTML, XML atau SVG. Dengan DOM berkas HTML dapat direpresentasikan dalam bentuk objek yang dapat diakses oleh JavaScript (sebenarnya tidak hanya oleh JavaScript. DOM juga dapat diakses oleh bahasa pemrograman lain). Melalui DOM inilah JavaScript dapat memanipulasi elemen beserta atributnya pada HTML.
+Struktur objek DOM digambarkan seperti struktur node tree (pohon simpul). Disebut pohon karena strukturnya seperti pohon dengan batang induk tunggal yang bercabang menjadi beberapa cabang anak, masing-masing memiliki daun. Pada kasus ini induk tunggal batang merupakan elemen <html>, cabangnya merupakan anak elemen di dalamnya, dan daun adalah konten di dalam elemen tersebut.
+Syntax:
+<!DOCTYPE html>
+<html>
+   <head>
+       <title>DOM Structure</title>
+   </head>
+   <body>
+       <h1>Hallo Developer!</h1>
+       <p>Belajar Dasar Pemrograman Web</p>
+   </body>
+</html>
+
+getElementById() - document.getElementById(“display”); = Mengembalikan elemen yang memiliki nilai id “display”.
+getElementsByName() - document.getElementsByName(“button”) = Mengembalikan banyak elemen (NodeList) yang memiliki attribute name dengan nilai “button”.
+getElementsByClassName() - document.getElementsByClassName(“button”) = Mengembalikan kumpulan yang memiliki class "button" dalam bentuk HTMLCollection.
+getElementsByTagName() - document.getElementsByTagName(“div”) = Mengembalikan banyak <div> elemen berupa HTMLCollection
+querySelector() - document.querySelector(“.button”); = Mengembalikan elemen pertama yang menerapkan class “button”.
+querySelectorAll() - document.querySelectorAll(“.button”); = Mengembalikan kumpulan Node beserta turunannya (NodeList) dengan class “button”.
+
+- Karena HTMLCollection mirip seperti array yang dapat menampung banyak data di dalamnya, HTMLCollection juga memiliki karakteristik mirip seperti array. HTMLCollection memiliki properti length untuk mendapatkan jumlah elemen yang ditampung. Untuk mengakses nilai individual elemennya menggunakan indexing.
+Syntax: 
+const query = document.querySelector("button");
+Contoh: query[4]
+
+- Kita juga dapat melakukan perulangan menggunakan for of pada HTMLCollection:
+Syntax:
+for (let item of buttons) {
+  console.log(item);
+}
+
+Dalam menggunakan method querySelector() tentu kita menggunakan query dalam menentukan target elemen. Untuk menargetkan elemen berdasarkan attribute class, kita gunakan tanda “.”, sedangkan jika kita menargetkan dengan menggunakan id, gunakan tanda “#”.
+
+# Memanipulasi Element
+Setelah kita tahu cara mengakses elemen melalui objek document, sekarang saatnya kita belajar cara memanipulasi elemen yang didapat, seperti mengubah konten, menambahkan atau mengubah nilai atribut, dan menambahkan action/event pada elemen.
+
+# Memanipulasi Atribut
+Untuk mengubah atau menambah nilai atribut pada elemen, apa  method yang kita gunakan? setAttribute() jawabannya. Method ini membutuhkan dua buah argumen string yang merupakan nama dan nilai dari atributnya.
+Struktur: 
+someElement.setAttribute("attributName", "attributeValue");
+
+Kita akan coba memperbaikinya dengan mengubah nilai atribut src pada elemen <img id=”catImage”> melalui JavaScript.
+Syntax:
+let catImage = document.querySelector("#catImage");
+catImage.setAttribute("src", "https://i.ibb.co/55VG7vL/three-cat.jpg");
+
+Selain mengatur nilai atribut elemen, kita juga dapat mengambil nilai dari atribut elemen yang sedang diterapkan dengan menggunakan method getAttribute(). Method tersebut membutuhkan satu buah argumen string yang merupakan nama atribut dan akan mengembalikan nilai dari atribut tersebut.
+Syntax:
+catImage.getAttribute("src");
+
+# Memanipulasi Konten Elemen
+Dengan JavaScript juga kita dapat mengubah konten yang ada di dalam HTML. Konten pada elemen disimpan di dalam properti innerHTML (konten dalam bentuk HTML) atau innerText (konten dalam bentuk Teks). Hasilnya, dalam memanipulasi konten kita dapat melakukannya dengan mengubah nilai dari properti tersebut.
+Syntax:
+let caption = document.querySelector("#caption");
+caption.innerHTML = '<em>Tiga Anak Kucing</em>'
+
+# Membuat dan Menambahkan Elemen Baru
+Sebenarnya terdapat beberapa cara dalam membuat elemen HTML baru menggunakan JavaScript. Bahkan kita bisa gunakan langsung properti innerHTML dengan menuliskan langsung tag HTML-nya kemudian menggabungkan dengan nilai yang ada pada elemen (appending). Tapi ini bukan pendekatan yang baik.
+Dalam membuat elemen baru, DOM telah menyediakan method yang bernama createElement().
+Syntax: 
+let newElement = document.createElement('p');
+
+Dengan menjalankan perintah tersebut maka terciptalah elemen paragraf baru yang diinisialisasi pada variabel newElement.
+Pada variabel newElement kita dapat memberikan nilai konten dengan menggunakan properti innerHTML ataupun innerText.
+Syntax:
+newElement.innerHTML = 'Anda menekan gambar kucing sebanyak <span id="count">0</span> kali';
+
+Walaupun sekarang variabel newElement sudah memiliki konten di dalamnya, tetapi mengapa belum muncul pada jendela browser? Hal tersebut karena fungsi createElement() hanya akan membuat sebuah elemen baru, tidak berarti ia akan memasukkannya ke dalam document.body.
+Agar elemen baru tampil pada jendela browser, kita perlu memasukkan elemen tersebut pada body dengan menggunakan fungsi appendChild();
+Syntax:
+document.body.appendChild(newElement);
+
+# Menambahkan Aksi (Event) pada Element
+Selain mampu mengakses elemen dalam bentuk objek pada halaman, JavaScript juga mampu menerima event atau kejadian yang terjadi pada elemen. Hal tersebut dinamakan Event Handler. Event bisa berupa interaksi dari pengguna seperti click, atau sekedar mengarahkan kursor pada elemen. Dengan menerapkan event handler, kita dapat menjalankan suatu fungsi tertentu ketika event terjadi pada elemen.
+Untuk menambahkan Event Handler pada elemen kita gunakan method, addEventListener() pada target element. Method ini membutuhkan setidaknya dua buah argument.
+Yang pertama adalah sebuah string sebagai tipe event-nya. Ada banyak sekali tipe event yang dapat digunakan pada method addEventListener(), Anda bisa melihat secara lengkap pada tautan berikut: https://developer.mozilla.org/en-US/docs/Web/Events. Salah satu yang banyak digunakan adalah “click”. Event ini akan membaca kejadian dimana pengguna melakukan click pada element.
+Kemudian yang kedua adalah sebuah fungsi yang akan dijalankan ketika event terjadi. Pada fungsi ini kita dapat memberikan sebuah argumen yang merupakan object yang berisikan informasi tentang action yang terjadi. Termasuk informasi mengenai target elemen event-nya (event.target). Argumen ini biasanya diberikan nama “event”.
+Syntax:
+catImage.addEventListener('click', function(event) {
+   document.querySelector('#count').innerText++;
+});
+
+Dengan menjalankan kode tersebut pada latihan sebelumnya, berarti kita memberikan sebuah event ‘click’ pada elemen catImage. Ketika gambar kucing ditekan akan menjalankan fungsi yang menambahkan nilai konten pada elemen dengan id count.
+
+# Menerapkan JavaScript pada Web Kalkulator
+Langkah pertama adalah buatlah sebuah objek dengan nama calculator. Di dalamnya terdapat properti yang menggambarkan data dan kondisi dari kalkulatornya, seperti displayNumber, operator, firstNumber, dan isWaitForSecondNumber. Sehingga kodenya akan nampak seperti ini:
+
+const calculator = {
+  displayNumber: '0',
+  operator: null,
+  firstNumber: null,
+  isWaitForSecondNumber: false,
+};
+
+Kita gunakan objek ini sebagai tempat menyimpan data dan kondisi pada calculator, di mana angka yang muncul pada layar kalkulator selalu diambil dari data calculator.displayNumber.
+Nilai dari properti operator dan firstNumber diberikan null dulu karena akan diberikan nilai ketika pengguna melakukan aksi. Properti isWaitForSecondNumber merupakan kondisi di mana kalkulator sedang menunggu pengguna menentukkan angka kedua dalam melakukan perhitungan.
+Setelah membuat object calculator, selanjutnya kita buat fungsi-fungsi umum yang dilakukan kalkulator seperti me-update angka pada layar dan menghapus data pada kalkulator.
+
+function updateDisplay() {
+  document.querySelector('#displayNumber').innerText = calculator.displayNumber;
+}
+ 
+function clearCalculator() {
+  calculator.displayNumber = '0';
+  calculator.operator = null;
+  calculator.firstNumber = null;
+  calculator.isWaitForSecondNumber = false;
+}
+
+Lalu, kita buat juga fungsi untuk memasukkan angka ke dalam nilai displayNumber kalkulator.
+
+function inputDigit(digit) {
+  calculator.displayNumber += digit;
+}
+
+Kemudian, kita buat variabel buttons dengan menginisialisasikan nilai seluruh elemen button yang ada dan berikan event click pada tiap elemennya.
+Untuk menangkap semua elemen div.button kita gunakan querySelectorAll("div.button") dan kita looping nilainya untuk diberikan event click di setiap elemen button-nya.
+
+const buttons = document.querySelectorAll('.button');
+ 
+for (const button of buttons) {
+  button.addEventListener('click', function (event) {
+    // mendapatkan objek elemen yang diklik
+    const target = event.target;
+ 
+    inputDigit(target.innerText);
+    updateDisplay();
+  });
+}
+
+Saat ini kalkulator masih dapat menampilkan angka 0 di awal bilangan, hal itu tentu aneh dan tidak pernah terjadi pada kalkulator manapun, kecuali menampilkan bilangan desimal. Untuk memperbaikinya, tambahkan sebuah kondisi dimana jika displayNumber bernilai ‘0’ di fungsi inputDigit() sehingga angka yang pertama dimasukkan pengguna akan menggantikan keseluruhan nilai displayNumber. Selain itu, lakukan seperti biasanya. Untuk melakukannya kita gunakan if-else statement.
+
+function clearCalculator() {
+  calculator.displayNumber = '0';
+  calculator.operator = null;
+  calculator.firstNumber = null;
+  calculator.isWaitForSecondNumber = false;
+}
+ 
+function inputDigit(digit) {
+  if (calculator.displayNumber === '0') {
+    calculator.displayNumber = digit;
+  } else {
+    calculator.displayNumber += digit;
+  }
+}
+ 
+const buttons = document.querySelectorAll('.button');
+
+Dengan demikian, kalkulator tidak akan menampilkan angka 0 diawal bilangan lagi.
+Kemudian, kita akan membuat tombol clear (CE) pada kalkulator berjalan dengan semestinya sehingga kita tidak perlu melakukan reload pada browser untuk reset kalkulator seperti yang ditunjukkan GIF di atas.
+Pada event handler, kita tambahkan kondisi dimana ketika event target merupakan elemen yang menerapkan class clear, kita akan panggil fungsi clearCalculator().
+
+const buttons = document.querySelectorAll('.button');
+for (const button of buttons) {
+  button.addEventListener('click', function(event) {
+    // mendapatkan objek elemen yang diklik
+    const target = event.target;
+ 
+    if (target.classList.contains('clear')) {
+      clearCalculator();
+      updateDisplay();
+      return;
+    }
+ 
+    inputDigit(target.innerText);
+    updateDisplay();
+  });
+}
+
+Kita bisa memanfaatkan event.classList untuk melihat nilai class apa saja dalam bentuk array yang ada di element target. Kemudian panggil function contains yang merupakan method dari array yang berguna untuk memastikan nilai yang berada di dalam array tersebut. Jika kondisi if terpenuhi, sudah dipastikan tombol tersebut adalah tombol clear (SE) sehingga kita perlu memanggil fungsi clearCalculator dan mengupdate display kalkulator. 
+Jangan lupa juga untuk gunakan return statement agar fungsi event handler terhenti sehingga kode yang ada di bawahnya tidak ikut tereksekusi.
+Selanjutnya, kita akan melengkapi beberapa fungsi lainnya yang ada pada kalkulator, yakni fungsi negative, operator, dan equals. Untuk itu, buat kondisi lainnya pada event handler sehingga kode tampak seperti berikut.
+
+const buttons = document.querySelectorAll('.button');
+for (const button of buttons) {
+  button.addEventListener('click', function (event) {
+    // mendapatkan objek elemen yang diklik
+    const target = event.target;
+ 
+    if (target.classList.contains('clear')) {
+      clearCalculator();
+      updateDisplay();
+      return;
+    }
+ 
+    if (target.classList.contains('negative')) {
+      inverseNumber();
+      updateDisplay();
+      return;
+    }
+    if (target.classList.contains('equals')) {
+      performCalculation();
+      updateDisplay();
+      return;
+    }
+    if (target.classList.contains('operator')) {
+      handleOperator(target.innerText);
+      return;
+    }
+ 
+    inputDigit(target.innerText);
+    updateDisplay();
+  });
+}
+
+
+function inverseNumber() {
+  if (calculator.displayNumber === '0') {
+    return;
+  }
+  calculator.displayNumber = calculator.displayNumber * -1;
+}
+
+Fungsi inverseNumber cukuplah simple. Hal tersebut karena kita hanya perlu melakukan perkalian calculator.displayNumber dengan nilai -1. Terkecuali jika displayNumber masih bernilai ‘0’, perkalian tidak akan dilakukan.
+
+Selanjutnya, kita akan membuat fungsi untuk menetapkan sebuah operator, baik itu "+" atau "-" di kalkulator. Tuliskan fungsi berikut.
+
+function handleOperator(operator) {
+  if (!calculator.isWaitForSecondNumber) {
+    calculator.operator = operator;
+    calculator.isWaitForSecondNumber = true;
+    calculator.firstNumber = calculator.displayNumber;
+ 
+    // mengatur ulang nilai display number supaya tombol selanjutnya dimulai dari angka pertama lagi
+    calculator.displayNumber = '0';
+  } else {
+    alert('Operator sudah ditetapkan');
+  }
+}
+
+Fungsi tersebut membutuhkan satu buah argument, yaitu operator. Nilai operator tersebut bersumber dari innerText tombol operator yang menjadi event target. Secara prinsip, fungsi ini bertujuan untuk menyimpan operator dan firstNumber dengan nilai displayNumber saat ini pada object calculator, hanya jika properti isWaitForSecondNumber bernilai false. Namun, jika isWaitForSecondNumber bernilai true, browser akan menampilkan alert dengan pesan “Operator sudah ditetapkan”.
+Voila! Sekarang tombol operator sudah dapat menetapkan nilai operator pada object calculator.
+Kita bisa lihat di console browser bahwa nilai sekarang dari properti operator dan firstNumber tidak null lagi, begitu pula dengan properti isWaitForSecondNumber yang sudah berubah menjadi true.
+Kita buat fungsi terakhir, yaitu performCalculation. Fungsi ini digunakan untuk melakukan kalkulasi terhadap nilai - nilai yang terdapat pada objek calculator, sehingga pastikan kalkulator sudah memiliki nilai operator dan firstNumber ketika fungsi ini dijalankan.
+
+function performCalculation() {
+  if (calculator.firstNumber == null || calculator.operator == null) {
+    alert('Anda belum menetapkan operator');
+    return;
+  }
+ 
+  let result = 0;
+  if (calculator.operator === '+') {
+    result = parseInt(calculator.firstNumber) + parseInt(calculator.displayNumber);
+  } else {
+    result = parseInt(calculator.firstNumber) - parseInt(calculator.displayNumber);
+  }
+ 
+  calculator.displayNumber = result;
+}
+
+Fungsi tersebut diawali dengan pengecekan nilai-nilai yang dibutuhkan untuk melakukan kalkulasi. Jika tidak terpenuhi maka proses akan dihentikan. Namun jika terpenuhi kalkulasi akan dilakukan.
+Dalam melakukan kalkulasi terdapat pengecekan tipe operator apa yang akan dilakukan. Kita juga menggunakan parseInt() untuk mengubah nilai string menjadi number. Mengapa konversi tipe data dibutuhkan? Sejatinya kita menggunakan string dalam menampilkan nilai pada jendela browser, namun untuk proses kalkulasi kita membutuhkan number.
+Dengan demikian, seluruh struktur kode pada berkas kalkulator.js akan tampak seperti berikut.
+
+const calculator = {
+  displayNumber: '0',
+  operator: null,
+  firstNumber: null,
+  isWaitForSecondNumber: false,
+};
+ 
+function updateDisplay() {
+  document.querySelector('#displayNumber').innerText = calculator.displayNumber;
+}
+ 
+function clearCalculator() {
+  calculator.displayNumber = '0';
+  calculator.operator = null;
+  calculator.firstNumber = null;
+  calculator.isWaitForSecondNumber = false;
+}
+ 
+function inputDigit(digit) {
+  if (calculator.displayNumber === '0') {
+    calculator.displayNumber = digit;
+  } else {
+    calculator.displayNumber += digit;
+  }
+}
+ 
+function inverseNumber() {
+  if (calculator.displayNumber === '0') {
+    return;
+  }
+  calculator.displayNumber = calculator.displayNumber * -1;
+}
+ 
+function handleOperator(operator) {
+  if (!calculator.isWaitForSecondNumber) {
+    calculator.operator = operator;
+    calculator.isWaitForSecondNumber = true;
+    calculator.firstNumber = calculator.displayNumber;
+    calculator.displayNumber = '0';
+  } else {
+    alert('Operator sudah ditetapkan');
+  }
+}
+ 
+function performCalculation() {
+  if (calculator.firstNumber == null || calculator.operator == null) {
+    alert('Anda belum menetapkan operator');
+    return;
+  }
+ 
+  let result = 0;
+  if (calculator.operator === '+') {
+    result = parseInt(calculator.firstNumber) + parseInt(calculator.displayNumber);
+  } else {
+    result = parseInt(calculator.firstNumber) - parseInt(calculator.displayNumber);
+  }
+ 
+  calculator.displayNumber = result;
+}
+ 
+const buttons = document.querySelectorAll('.button');
+for (const button of buttons) {
+  button.addEventListener('click', function (event) {
+    // mendapatkan objek elemen yang diklik
+    const target = event.target;
+ 
+    if (target.classList.contains('clear')) {
+      clearCalculator();
+      updateDisplay();
+      return;
+    }
+ 
+    if (target.classList.contains('negative')) {
+      inverseNumber();
+      updateDisplay();
+      return;
+    }
+ 
+    if (target.classList.contains('equals')) {
+      performCalculation();
+      updateDisplay();
+      return;
+    }
+ 
+    if (target.classList.contains('operator')) {
+      handleOperator(target.innerText)
+      return;
+    }
+ 
+    inputDigit(target.innerText);
+    updateDisplay();
+  });
+}
+
+Aplikasi kalkulator yang telah kita buat tidak bisa melakukan operasi aritmatika secara berkelanjutan, yaitu melakukan kedua secara langsung tepat setelah operasi pertama selesai. Anda bisa mengembangkannya lebih lanjut untuk meningkatkan kemampuan problem solving yang lebih baik.
