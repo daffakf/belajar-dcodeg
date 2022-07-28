@@ -61,4 +61,5 @@ function renderHistory() {
     }
 }
 
+// memanggil fungsi renderHistory() agar data history muncul ketika website pertama kali dijalankan
 renderHistory();
