@@ -7,6 +7,8 @@ function checkForStorage() {
     return typeof (Storage) !== "undefined"
 }
 
+// method setItem = untuk menyimpan data, method getItem = untuk mengakses (mengambil) data yang sudah dimasukkan
+
 // fungsi untuk menyimpan data riwayat kalkulasi, argumennya = data dari hasil kalkulasi
 function putHistory(data) {
     if (checkForStorage()) {
