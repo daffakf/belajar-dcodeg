@@ -69,11 +69,46 @@ body {
     font-weight: bold;
 }
 
+/* bagian tabel */
+.history {
+    width: 80%;
+    margin: 30px auto 0 auto;
+    overflow: scroll;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    /* memiliki lebar 100% terhadap parent */
+    width: 100%;
+    border: 1px solid #ddd;
+}
+
+th,
+td {
+    text-align: center;
+    padding: 16px;
+}
+
+th {
+    background-color: orange;
+    color: white;
+}
+
+tr:nth-child(even) {
+    /* membuat baris dengan nomor genap memiliki background-color #d2d2d2 */
+    background-color: #d2d2d2;
+}
+
 /* Pada device mobile tampilan kalkulator sudah responsif namun, teks tombol masih terlalu kecil tampilannya. Aspek aksesibilitas penggunanya, kurang. */
 /* tambahkan meta tag viewport pada file html dan gunakan @media query */
 /* media query untuk menetapkan nilai padding yang pas ketika di akses pada mobile device */
 @media screen and (max-width: 513px) {
     .button {
         padding: 10px;
+    }
+
+    .history {
+        width: 100%;
     }
 }
